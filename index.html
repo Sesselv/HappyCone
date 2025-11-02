@@ -3,13 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HappyCone - Glaces Artisanales & Bonne Humeur 🍦</title>
+    <title>HappyCone - Glaces Artisanales 3D 🍦</title>
 
-    <!-- Google Fonts - Typographies rondes et joyeuses -->
+    <!-- Google Fonts - Style moderne et audacieux -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Poppins:wght@300;400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Outfit:wght@300;400;600;700;800&display=swap"
       rel="stylesheet"
     />
 
@@ -23,144 +23,211 @@
     <link rel="stylesheet" href="css/animations.css" />
   </head>
   <body>
-    <!-- Bulles flottantes en arrière-plan -->
-    <div class="bulles-fond" id="bulles-container"></div>
-
-    <!-- Section Hero / Accueil -->
+    <!-- Section Hero / Accueil 3D -->
     <section class="sec-hero" id="accueil">
       <div class="container">
-        <div class="hero-content">
-          <div class="hero-illustration">
-            <div class="camion-glace">
-              <div class="camion-body">🚚</div>
-              <div class="glace-icon">🍦</div>
+        <div class="hero-grid">
+          <div class="hero-image-zone">
+            <div class="image-placeholder truck-image">
+              <div class="placeholder-content">
+                <img
+                  src="assets/img/foodtruck.png"
+                  alt=""
+                  class="foodtruck-img"
+                  style="width: 100%; height: 100%; object-fit: contain"
+                />
+              </div>
             </div>
           </div>
-          <h1 class="hero-title">
-            <span class="titre-principal">HappyCone</span>
-            <span class="sous-titre">Glaces artisanales & bonne humeur</span>
-          </h1>
-          <p class="hero-slogan typewriter" id="slogan">
-            Le goût du sourire, partout où on passe !
-          </p>
-          <a href="#parfums" class="btn-hero">
-            <span>Découvrir nos parfums</span>
-            <span class="emoji-bounce">🍧</span>
-          </a>
+
+          <!-- Contenu texte -->
+          <div class="hero-text-zone">
+            <div class="badge-3d">🍦 Glaces Artisanales</div>
+            <h1 class="hero-title-3d">
+              <span class="word-3d">Happy</span>
+              <span class="word-3d">Cone</span>
+            </h1>
+            <p class="hero-subtitle">Le bonheur glacé à chaque bouchée</p>
+            <div class="hero-stats">
+              <div class="stat-card">
+                <span class="stat-number">8</span>
+                <span class="stat-label">Parfums</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">Artisanal</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-number">5⭐</span>
+                <span class="stat-label">Reviews</span>
+              </div>
+            </div>
+            <a href="#parfums" class="btn-3d primary">
+              <span>Découvrir nos glaces</span>
+              <span class="btn-icon">→</span>
+            </a>
+          </div>
         </div>
+      </div>
+
+      <!-- Éléments décoratifs 3D -->
+      <div class="floating-shapes">
+        <div class="shape-3d shape-circle"></div>
+        <div class="shape-3d shape-square"></div>
+        <div class="shape-3d shape-triangle"></div>
       </div>
     </section>
 
-    <!-- Section Nos Parfums -->
+    <!-- Section Nos Parfums 3D -->
     <section class="sec-parfums" id="parfums">
       <div class="container">
-        <h2 class="section-title neon-text">Nos Parfums Glacés 🍨</h2>
-        <p class="section-subtitle">
-          Chaque boule est une explosion de bonheur !
-        </p>
+        <div class="section-header">
+          <span class="section-badge">Nos Créations</span>
+          <h2 class="section-title-3d">Parfums Glacés</h2>
+          <p class="section-description">
+            Des saveurs qui font vibrer vos papilles
+          </p>
+        </div>
 
-        <div class="parfums-grid">
+        <div class="parfums-grid-3d">
           <!-- Carte Vanille -->
-          <div
-            class="parfum-card"
-            data-parfum="Vanille Bourbon"
-            data-color="#FFF8DC"
-          >
-            <div class="card-emoji">🥛</div>
-            <h3 class="card-title">Vanille Bourbon</h3>
-            <p class="card-description">La douceur classique qui fait fondre</p>
+          <div class="parfum-card-3d" data-color="#FFF8DC">
+            <div class="card-image-zone">
+              <div class="image-placeholder">
+                <span class="placeholder-icon">🥛</span>
+              </div>
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Vanille Bourbon</h3>
+              <p class="card-description">La douceur classique</p>
+              <span class="card-price">3.50€</span>
+            </div>
+            <div class="card-hover-layer"></div>
           </div>
 
           <!-- Carte Fraise -->
-          <div
-            class="parfum-card"
-            data-parfum="Fraise des Bois"
-            data-color="#FF69B4"
-          >
-            <div class="card-emoji">🍓</div>
-            <h3 class="card-title">Fraise des Bois</h3>
-            <p class="card-description">L'été en une cuillerée</p>
+          <div class="parfum-card-3d" data-color="#FF69B4">
+            <div class="card-image-zone">
+              <div class="image-placeholder">
+                <span class="placeholder-icon">🍓</span>
+              </div>
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Fraise des Bois</h3>
+              <p class="card-description">L'été en une boule</p>
+              <span class="card-price">3.80€</span>
+            </div>
+            <div class="card-hover-layer"></div>
           </div>
 
           <!-- Carte Pistache -->
-          <div
-            class="parfum-card"
-            data-parfum="Pistache Gourmande"
-            data-color="#93C572"
-          >
-            <div class="card-emoji">🌰</div>
-            <h3 class="card-title">Pistache Gourmande</h3>
-            <p class="card-description">Le vert du bonheur croquant</p>
+          <div class="parfum-card-3d" data-color="#93C572">
+            <div class="card-image-zone">
+              <div class="image-placeholder">
+                <span class="placeholder-icon">🌰</span>
+              </div>
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Pistache</h3>
+              <p class="card-description">Le vert du bonheur</p>
+              <span class="card-price">4.00€</span>
+            </div>
+            <div class="card-hover-layer"></div>
           </div>
 
           <!-- Carte Cookie -->
-          <div
-            class="parfum-card"
-            data-parfum="Cookie Crunch"
-            data-color="#D2691E"
-          >
-            <div class="card-emoji">🍪</div>
-            <h3 class="card-title">Cookie Crunch</h3>
-            <p class="card-description">Chocolat et éclats de biscuit</p>
+          <div class="parfum-card-3d" data-color="#D2691E">
+            <div class="card-image-zone">
+              <div class="image-placeholder">
+                <span class="placeholder-icon">🍪</span>
+              </div>
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Cookie Crunch</h3>
+              <p class="card-description">Chocolat et biscuit</p>
+              <span class="card-price">4.20€</span>
+            </div>
+            <div class="card-hover-layer"></div>
           </div>
 
           <!-- Carte Mangue -->
-          <div
-            class="parfum-card"
-            data-parfum="Mangue Tropicale"
-            data-color="#FFB347"
-          >
-            <div class="card-emoji">🥭</div>
-            <h3 class="card-title">Mangue Tropicale</h3>
-            <p class="card-description">Un voyage sous les tropiques</p>
+          <div class="parfum-card-3d" data-color="#FFB347">
+            <div class="card-image-zone">
+              <div class="image-placeholder">
+                <span class="placeholder-icon">🥭</span>
+              </div>
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Mangue Tropicale</h3>
+              <p class="card-description">Voyage tropical</p>
+              <span class="card-price">3.90€</span>
+            </div>
+            <div class="card-hover-layer"></div>
           </div>
 
           <!-- Carte Citron -->
-          <div
-            class="parfum-card"
-            data-parfum="Citron Givré"
-            data-color="#FFF44F"
-          >
-            <div class="card-emoji">🍋</div>
-            <h3 class="card-title">Citron Givré</h3>
-            <p class="card-description">L'acidulé qui réveille</p>
+          <div class="parfum-card-3d" data-color="#FFF44F">
+            <div class="card-image-zone">
+              <div class="image-placeholder">
+                <span class="placeholder-icon">🍋</span>
+              </div>
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Citron Givré</h3>
+              <p class="card-description">Acidulé et frais</p>
+              <span class="card-price">3.70€</span>
+            </div>
+            <div class="card-hover-layer"></div>
           </div>
 
           <!-- Carte Caramel -->
-          <div
-            class="parfum-card"
-            data-parfum="Caramel Salé"
-            data-color="#C68642"
-          >
-            <div class="card-emoji">🍯</div>
-            <h3 class="card-title">Caramel Salé</h3>
-            <p class="card-description">La douceur avec du caractère</p>
+          <div class="parfum-card-3d" data-color="#C68642">
+            <div class="card-image-zone">
+              <div class="image-placeholder">
+                <span class="placeholder-icon">🍯</span>
+              </div>
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Caramel Salé</h3>
+              <p class="card-description">Douceur salée</p>
+              <span class="card-price">4.10€</span>
+            </div>
+            <div class="card-hover-layer"></div>
           </div>
 
           <!-- Carte Coco -->
-          <div
-            class="parfum-card"
-            data-parfum="Coco Paradis"
-            data-color="#F5F5DC"
-          >
-            <div class="card-emoji">🥥</div>
-            <h3 class="card-title">Coco Paradis</h3>
-            <p class="card-description">L'évasion crémeuse</p>
+          <div class="parfum-card-3d" data-color="#F5F5DC">
+            <div class="card-image-zone">
+              <div class="image-placeholder">
+                <span class="placeholder-icon">🥥</span>
+              </div>
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Coco Paradis</h3>
+              <p class="card-description">Évasion crémeuse</p>
+              <span class="card-price">3.95€</span>
+            </div>
+            <div class="card-hover-layer"></div>
           </div>
         </div>
 
-        <button class="btn-surprise" id="btn-random">
-          <span>Découvre un parfum au hasard</span>
-          <span class="emoji-clover">🍀</span>
-        </button>
+        <div class="section-cta">
+          <button class="btn-3d secondary" id="btn-random">
+            <span>Parfum Surprise</span>
+            <span class="btn-icon">🎲</span>
+          </button>
+        </div>
       </div>
     </section>
 
-    <!-- Section Où nous trouver -->
+    <!-- Section Où nous trouver - Timeline V1 -->
     <section class="sec-emplacements" id="emplacements">
       <div class="container">
-        <h2 class="section-title neon-text">Où Nous Trouver ? 🚚</h2>
-        <p class="section-subtitle">Suivez notre tournée gourmande !</p>
+        <div class="section-header">
+          <span class="section-badge">Notre Tournée</span>
+          <h2 class="section-title-3d neon-text">Où Nous Trouver ? 🚚</h2>
+          <p class="section-description">Suivez notre tournée gourmande !</p>
+        </div>
 
         <div class="timeline-wrapper">
           <div class="timeline-line"></div>
@@ -229,89 +296,115 @@
       </div>
     </section>
 
-    <!-- Section À propos -->
+    <!-- Section À propos 3D -->
     <section class="sec-apropos" id="apropos">
       <div class="container">
-        <div class="apropos-content">
-          <div class="apropos-text">
-            <h2 class="section-title neon-text">Notre Histoire 😊</h2>
-            <p class="apropos-description">
-              Deux amis, un vieux camion, et une mission :
-              <strong>distribuer le bonheur glacé partout !</strong>
+        <div class="apropos-grid">
+          <!-- Image de l'équipe -->
+          <div class="team-image-zone">
+            <div class="image-placeholder large">
+              <div class="placeholder-content">
+                <img
+                  src="assets/img/equipe.png"
+                  alt="Équipe HappyCone"
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: var(--radius-lg);
+                  "
+                />
+              </div>
+            </div>
+            <div class="team-badge-3d">Depuis 2023</div>
+          </div>
+
+          <!-- Texte à propos -->
+          <div class="apropos-content">
+            <span class="section-badge">Notre Histoire</span>
+            <h2 class="section-title-3d">Qui Sommes-Nous ?</h2>
+            <p class="apropos-text">
+              <strong>Deux amis, un vieux camion, et une mission :</strong>
+              distribuer le bonheur glacé partout ! 🍦
             </p>
-            <p class="apropos-description">
-              Tout a commencé dans notre cuisine, avec des recettes de famille
-              et une envie folle de partager nos créations. Aujourd'hui,
-              HappyCone sillonne les rues avec ses glaces artisanales faites
-              avec amour et des ingrédients 100% naturels.
-            </p>
-            <p class="apropos-description">
-              Chaque cornet est une invitation au bonheur, chaque boule raconte
-              une histoire. Rejoignez notre communauté gourmande ! 🍦✨
+            <p class="apropos-text">
+              Tout a commencé dans notre cuisine avec des recettes de famille et
+              une envie folle de partager nos créations. Aujourd'hui, HappyCone
+              sillonne les rues avec ses glaces artisanales faites avec amour et
+              des ingrédients 100% naturels.
             </p>
 
-            <div class="social-links">
-              <a href="#" class="social-icon" aria-label="Instagram">
+            <div class="values-grid">
+              <div class="value-card-3d">
+                <span class="value-icon">🌱</span>
+                <h4>100% Naturel</h4>
+              </div>
+              <div class="value-card-3d">
+                <span class="value-icon">❤️</span>
+                <h4>Fait avec Amour</h4>
+              </div>
+              <div class="value-card-3d">
+                <span class="value-icon">🍨</span>
+                <h4>Local & Bio</h4>
+              </div>
+            </div>
+
+            <div class="social-links-3d">
+              <a href="#" class="social-btn-3d instagram">
                 <span>📷</span>
               </a>
-              <a href="#" class="social-icon" aria-label="TikTok">
+              <a href="#" class="social-btn-3d tiktok">
                 <span>🎵</span>
               </a>
-              <a href="#" class="social-icon" aria-label="Facebook">
+              <a href="#" class="social-btn-3d facebook">
                 <span>👍</span>
               </a>
             </div>
           </div>
-
-          <div class="apropos-visual">
-            <div class="team-illustration">
-              <div class="emoji-float">👨‍🍳</div>
-              <div class="emoji-float">👩‍🍳</div>
-              <div class="emoji-float">🍦</div>
-              <div class="emoji-float">❤️</div>
-              <div class="emoji-float">🎊</div>
-            </div>
-          </div>
         </div>
       </div>
-
-      <!-- Éléments décoratifs flottants -->
-      <div class="confetti-container" id="confetti"></div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer 3D -->
     <footer class="sec-footer" id="contact">
       <div class="container">
-        <div class="footer-content">
-          <div class="footer-section">
-            <h3 class="footer-title">HappyCone 🍦</h3>
+        <div class="footer-grid">
+          <div class="footer-column">
+            <h3 class="footer-title-3d">HappyCone</h3>
             <p class="footer-text">Le goût du sourire depuis 2023</p>
           </div>
 
-          <div class="footer-section">
+          <div class="footer-column">
             <h4 class="footer-subtitle">Contact</h4>
-            <p class="footer-text">📧 hello@happycone.fr</p>
-            <p class="footer-text">📱 06 12 34 56 78</p>
+            <ul class="footer-list">
+              <li>📧 hello@happycone.fr</li>
+              <li>📱 06 12 34 56 78</li>
+              <li>📍 Partout en ville</li>
+            </ul>
           </div>
 
-          <div class="footer-section">
+          <div class="footer-column">
+            <h4 class="footer-subtitle">Horaires</h4>
+            <ul class="footer-list">
+              <li>Lun - Ven : 14h - 20h</li>
+              <li>Weekend : Sur événements</li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
             <h4 class="footer-subtitle">Suivez-nous</h4>
             <div class="footer-social">
-              <a href="#" class="footer-link">Instagram</a>
-              <a href="#" class="footer-link">TikTok</a>
-              <a href="#" class="footer-link">Facebook</a>
+              <a href="#" class="footer-social-link">Instagram</a>
+              <a href="#" class="footer-social-link">TikTok</a>
+              <a href="#" class="footer-social-link">Facebook</a>
             </div>
           </div>
         </div>
 
-        <div class="footer-melting-cone">
-          <span class="cone-emoji">🍦</span>
-        </div>
-
         <div class="footer-bottom">
-          <p class="footer-copyright">
+          <p>
             © 2025 HappyCone - Tous droits réservés |
-            <a href="#" class="footer-link">Mentions légales</a>
+            <a href="#">Mentions légales</a>
           </p>
         </div>
       </div>

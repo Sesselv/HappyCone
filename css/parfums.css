@@ -1,212 +1,276 @@
 /* ========================================
-   SECTION PARFUMS - Nos Glaces
+   SECTION PARFUMS -  Cartes 3D
 ======================================== */
 
 .sec-parfums {
-  background: linear-gradient(
-    180deg,
-    var(--creme-vanille) 0%,
-    var(--blanc-neige) 100%
-  );
+  background: var(--gris-doux);
   position: relative;
-  overflow: hidden;
+
+  /* Motif décoratif */
+  &::after {
+    content: "🍦";
+    position: absolute;
+    font-size: 15rem;
+    opacity: 0.03;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
 
   & .container {
     position: relative;
-    z-index: 2;
+    z-index: 1;
   }
 
-  /* Grille des parfums */
-  & .parfums-grid {
+  /* Grille des parfums 3D */
+  & .parfums-grid-3d {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--espace-md);
-    margin-bottom: var(--espace-lg);
-    padding: var(--espace-md) 0;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--gap-lg);
+    margin-bottom: var(--gap-xl);
   }
 
-  /* Carte de parfum */
-  & .parfum-card {
-    background: var(--blanc-neige);
-    border-radius: var(--radius-doux);
-    padding: var(--espace-md);
-    text-align: center;
-    cursor: pointer;
-    position: relative;
-    transition: var(--transition-douce);
-    box-shadow: var(--ombre-douce);
+  /* Carte Parfum 3D */
+  & .parfum-card-3d {
+    background: var(--blanc);
+    border: var(--border-size) solid var(--noir);
+    border-radius: var(--radius-md);
     overflow: hidden;
-    will-change: transform;
+    position: relative;
+    transition: var(--trans-smooth);
+    cursor: pointer;
+    box-shadow: var(--shadow-3d);
 
-    &::before {
-      content: "";
+    &:hover {
+      transform: translateY(-8px) rotate(2deg);
+      box-shadow: var(--shadow-3d-hover);
+
+      & .card-image-zone {
+        transform: scale(1.1);
+      }
+
+      & .card-hover-layer {
+        opacity: 0.1;
+      }
+
+      & .card-title {
+        color: var(--rose-fraise);
+      }
+
+      & .card-price {
+        transform: scale(1.2);
+        background: var(--bleu-myrtille);
+      }
+    }
+
+    /* Zone Image */
+    & .card-image-zone {
+      height: 200px;
+      background: var(--gris-doux);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--trans-smooth);
+      position: relative;
+      overflow: hidden;
+
+      & .image-placeholder {
+        width: 100%;
+        height: 100%;
+        border: none;
+        border-radius: 0;
+
+        & .placeholder-icon {
+          font-size: 6rem;
+          filter: none;
+          animation: icon-float 3s ease-in-out infinite;
+        }
+      }
+    }
+
+    /* Contenu de la carte */
+    & .card-content {
+      padding: var(--gap-md);
+      position: relative;
+      z-index: 2;
+    }
+
+    & .card-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--noir);
+      margin-bottom: var(--gap-xs);
+      transition: var(--trans-fast);
+    }
+
+    & .card-description {
+      font-size: 1rem;
+      color: var(--noir);
+      margin-bottom: var(--gap-md);
+    }
+
+    & .card-price {
+      display: inline-block;
+      padding: var(--gap-xs) var(--gap-sm);
+      background: var(--rose-fraise);
+      color: var(--blanc);
+      font-weight: 700;
+      font-size: 1.2rem;
+      border-radius: var(--radius-sm);
+      transition: var(--trans-smooth);
+      box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    /* Layer de hover */
+    & .card-hover-layer {
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
-      background: linear-gradient(
-        135deg,
-        transparent 0%,
-        var(--bonbon-rose) 100%
-      );
+      background: var(--rose-fraise);
       opacity: 0;
-      transition: var(--transition-rapide);
-      z-index: 0;
-    }
-
-    &:hover {
-      transform: translateY(-10px) rotate(2deg);
-      box-shadow: 0 15px 40px rgba(255, 105, 180, 0.4);
-
-      &::before {
-        opacity: 0.1;
-      }
-
-      & .card-emoji {
-        transform: scale(1.3) rotate(15deg);
-        filter: drop-shadow(0 0 20px var(--citron-soleil));
-      }
-
-      & .card-title {
-        color: var(--bonbon-rose);
-        transform: scale(1.05);
-      }
-    }
-
-    &:active {
-      transform: scale(0.95);
-    }
-
-    & > * {
-      position: relative;
+      transition: var(--trans-smooth);
+      pointer-events: none;
       z-index: 1;
     }
+  }
 
-    & .card-emoji {
-      font-size: 5rem;
-      margin-bottom: var(--espace-sm);
-      display: block;
-      transition: var(--transition-douce);
-      filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
-    }
-
-    & .card-title {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: var(--chocolat-noir);
-      margin-bottom: var(--espace-xs);
-      transition: var(--transition-rapide);
-    }
-
-    & .card-description {
-      font-size: 1rem;
-      color: var(--chocolat-noir);
-      opacity: 0.7;
-      line-height: 1.4;
+  /* Variations de couleur par carte */
+  & .parfum-card-3d:nth-child(1) {
+    & .card-hover-layer {
+      background: var(--jaune-citron);
     }
   }
 
-  /* Animation d'explosion de bulle au clic */
-  & .parfum-card.explode {
-    animation: card-explode 0.6s ease-out;
-
-    &::after {
-      content: "✨";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 8rem;
-      animation: sparkle-burst 0.6s ease-out forwards;
-      pointer-events: none;
+  & .parfum-card-3d:nth-child(2) {
+    & .card-hover-layer {
+      background: var(--rose-fraise);
     }
   }
 
-  /* Bouton surprise */
-  & .btn-surprise {
-    background: var(--gradient-douceur);
-    color: var(--blanc-neige);
-    margin: var(--espace-md) auto;
-    display: flex;
-    box-shadow: var(--ombre-moyenne);
-    position: relative;
-    z-index: 10;
-
-    &:hover {
-      background: var(--gradient-estival);
-      box-shadow: var(--ombre-forte);
-
-      & .emoji-clover {
-        animation: spin-clover 0.5s ease;
-      }
+  & .parfum-card-3d:nth-child(3) {
+    & .card-hover-layer {
+      background: var(--bleu-myrtille);
     }
+  }
 
-    & .emoji-clover {
-      font-size: 1.5rem;
+  & .parfum-card-3d:nth-child(4) {
+    & .card-hover-layer {
+      background: var(--rose-fraise);
     }
+  }
+
+  & .parfum-card-3d:nth-child(5) {
+    & .card-hover-layer {
+      background: var(--jaune-citron);
+    }
+  }
+
+  & .parfum-card-3d:nth-child(6) {
+    & .card-hover-layer {
+      background: var(--jaune-citron);
+    }
+  }
+
+  & .parfum-card-3d:nth-child(7) {
+    & .card-hover-layer {
+      background: var(--bleu-myrtille);
+    }
+  }
+
+  & .parfum-card-3d:nth-child(8) {
+    & .card-hover-layer {
+      background: var(--bleu-myrtille);
+    }
+  }
+
+  /* Animation d'explosion */
+  & .parfum-card-3d.explode {
+    animation: card-explode-3d 0.6s ease-out;
+  }
+
+  /* Section CTA */
+  & .section-cta {
+    text-align: center;
+    margin-top: var(--gap-lg);
   }
 }
 
 /* --- ANIMATIONS KEYFRAMES --- */
 
-/* Explosion de carte */
-@keyframes card-explode {
-  0% {
-    transform: translateY(-10px) scale(1);
+@keyframes icon-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-10px) rotate(-5deg);
   }
   50% {
-    transform: translateY(-20px) scale(1.1);
-    box-shadow: 0 20px 60px rgba(255, 105, 180, 0.6);
+    transform: translateY(-15px) rotate(0deg);
   }
-  100% {
-    transform: translateY(-10px) scale(1);
+  75% {
+    transform: translateY(-10px) rotate(5deg);
   }
 }
 
-/* Éclat d'étoiles */
-@keyframes sparkle-burst {
+@keyframes card-explode-3d {
   0% {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0);
+    transform: translateY(-8px) rotate(2deg) scale(1);
   }
   50% {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1.5);
+    transform: translateY(-20px) rotate(5deg) scale(1.1);
+    box-shadow: 16px 16px 0 rgba(0, 0, 0, 0.2);
   }
   100% {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(2);
-  }
-}
-
-/* Rotation du trèfle */
-@keyframes spin-clover {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
+    transform: translateY(-8px) rotate(2deg) scale(1);
   }
 }
 
 /* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+  .sec-parfums {
+    & .parfums-grid-3d {
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: var(--gap-md);
+    }
+  }
+}
+
 @media (max-width: 768px) {
   .sec-parfums {
-    & .parfums-grid {
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: var(--espace-sm);
+    & .parfums-grid-3d {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: var(--gap-sm);
     }
 
-    & .parfum-card {
-      padding: var(--espace-sm);
+    & .parfum-card-3d {
+      & .card-image-zone {
+        height: 150px;
 
-      & .card-emoji {
-        font-size: 4rem;
+        & .image-placeholder {
+          & .placeholder-icon {
+            font-size: 4rem;
+          }
+        }
+      }
+
+      & .card-content {
+        padding: var(--gap-sm);
       }
 
       & .card-title {
         font-size: 1.3rem;
+      }
+
+      & .card-description {
+        font-size: 0.9rem;
+      }
+
+      & .card-price {
+        font-size: 1rem;
       }
     }
   }
@@ -214,37 +278,16 @@
 
 @media (max-width: 480px) {
   .sec-parfums {
-    & .parfums-grid {
+    & .parfums-grid-3d {
       grid-template-columns: 1fr;
-      gap: var(--espace-sm);
     }
 
-    & .parfum-card {
-      & .card-emoji {
-        font-size: 3.5rem;
+    & .parfum-card-3d {
+      &:hover {
+        transform: translateY(-4px) rotate(0deg);
       }
-
-      & .card-title {
-        font-size: 1.2rem;
-      }
-
-      & .card-description {
-        font-size: 0.9rem;
-      }
-    }
-
-    & .btn-surprise {
-      font-size: 1rem;
-      padding: var(--espace-sm);
     }
   }
 }
 
-/* --- EFFET DE COULEUR DYNAMIQUE AU SURVOL --- */
-.parfum-card[data-color]::before {
-  background: linear-gradient(135deg, transparent 0%, currentColor 100%);
-}
 
-.parfum-card:hover {
-  border: 2px solid var(--bonbon-rose);
-}

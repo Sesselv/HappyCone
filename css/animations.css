@@ -1,112 +1,362 @@
 /* ========================================
-   ANIMATIONS CSS - Effets visuels créatifs
+   ANIMATIONS -  Effets 3D Avancés
 ======================================== */
 
-/* --- BULLES FLOTTANTES (générées en JS) --- */
-.bulle {
-  position: absolute;
-  border-radius: 50%;
-  opacity: 0.6;
-  pointer-events: none;
-  will-change: transform;
-  animation: float-up linear infinite;
+/* --- ANIMATIONS 3D PRINCIPALES --- */
+
+/* Rotation 3D */
+.rotate-3d {
+  animation: rotate-3d-axis 4s ease-in-out infinite;
 }
 
-/* Variations de bulles */
-.bulle-1 {
-  background: radial-gradient(
-    circle at 30% 30%,
-    var(--bonbon-rose),
-    transparent
-  );
-}
-
-.bulle-2 {
-  background: radial-gradient(
-    circle at 30% 30%,
-    var(--glace-turquoise),
-    transparent
-  );
-}
-
-.bulle-3 {
-  background: radial-gradient(
-    circle at 30% 30%,
-    var(--citron-soleil),
-    transparent
-  );
-}
-
-.bulle-4 {
-  background: radial-gradient(
-    circle at 30% 30%,
-    var(--corail-doux),
-    transparent
-  );
-}
-
-.bulle-5 {
-  background: radial-gradient(
-    circle at 30% 30%,
-    var(--lilas-reve),
-    transparent
-  );
-}
-
-/* Animation de montée des bulles */
-@keyframes float-up {
-  0% {
-    transform: translateY(100vh) translateX(0) scale(0);
-    opacity: 0;
+@keyframes rotate-3d-axis {
+  0%,
+  100% {
+    transform: rotateY(0deg) rotateX(0deg);
   }
-  10% {
-    opacity: 0.6;
+  25% {
+    transform: rotateY(90deg) rotateX(0deg);
   }
   50% {
-    transform: translateY(50vh) translateX(50px) scale(1);
+    transform: rotateY(180deg) rotateX(0deg);
   }
-  90% {
-    opacity: 0.6;
-  }
-  100% {
-    transform: translateY(-10vh) translateX(-30px) scale(0.8);
-    opacity: 0;
+  75% {
+    transform: rotateY(270deg) rotateX(0deg);
   }
 }
 
-/* --- CONFETTIS ANIMÉS --- */
-.confetti {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  background: var(--bonbon-rose);
-  animation: confetti-fall linear infinite;
+/* Flip 3D */
+.flip-3d {
+  animation: flip-3d 1s ease-in-out;
+  transform-style: preserve-3d;
+}
+
+@keyframes flip-3d {
+  0% {
+    transform: perspective(1000px) rotateY(0deg);
+  }
+  50% {
+    transform: perspective(1000px) rotateY(180deg);
+  }
+  100% {
+    transform: perspective(1000px) rotateY(360deg);
+  }
+}
+
+/* Cube Rotation */
+.cube-rotate {
+  animation: cube-spin 6s linear infinite;
+  transform-style: preserve-3d;
+}
+
+@keyframes cube-spin {
+  0% {
+    transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+  }
+  25% {
+    transform: perspective(1000px) rotateX(90deg) rotateY(0deg);
+  }
+  50% {
+    transform: perspective(1000px) rotateX(180deg) rotateY(90deg);
+  }
+  75% {
+    transform: perspective(1000px) rotateX(270deg) rotateY(180deg);
+  }
+  100% {
+    transform: perspective(1000px) rotateX(360deg) rotateY(360deg);
+  }
+}
+
+/* Pop 3D */
+.pop-3d {
+  animation: pop-3d 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes pop-3d {
+  0% {
+    transform: scale(0) perspective(1000px) translateZ(-500px);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2) perspective(1000px) translateZ(0);
+  }
+  100% {
+    transform: scale(1) perspective(1000px) translateZ(0);
+    opacity: 1;
+  }
+}
+
+/* Bounce 3D */
+.bounce-3d {
+  animation: bounce-3d 1s ease-in-out infinite;
+  transform-style: preserve-3d;
+}
+
+@keyframes bounce-3d {
+  0%,
+  100% {
+    transform: perspective(1000px) translateZ(0) translateY(0);
+  }
+  50% {
+    transform: perspective(1000px) translateZ(50px) translateY(-30px);
+  }
+}
+
+/* Swing 3D */
+.swing-3d {
+  animation: swing-3d 2s ease-in-out infinite;
+  transform-origin: top center;
+}
+
+@keyframes swing-3d {
+  0%,
+  100% {
+    transform: perspective(1000px) rotateX(0deg);
+  }
+  25% {
+    transform: perspective(1000px) rotateX(20deg);
+  }
+  75% {
+    transform: perspective(1000px) rotateX(-20deg);
+  }
+}
+
+/* Float 3D */
+.float-3d {
+  animation: float-3d 3s ease-in-out infinite;
+}
+
+@keyframes float-3d {
+  0%,
+  100% {
+    transform: perspective(1000px) translateY(0) translateZ(0);
+  }
+  50% {
+    transform: perspective(1000px) translateY(-20px) translateZ(50px);
+  }
+}
+
+/* Pulse 3D */
+.pulse-3d {
+  animation: pulse-3d 2s ease-in-out infinite;
+}
+
+@keyframes pulse-3d {
+  0%,
+  100% {
+    transform: perspective(1000px) scale(1) translateZ(0);
+  }
+  50% {
+    transform: perspective(1000px) scale(1.1) translateZ(30px);
+  }
+}
+
+/* Wobble 3D */
+.wobble-3d {
+  animation: wobble-3d 1s ease-in-out;
+}
+
+@keyframes wobble-3d {
+  0%,
+  100% {
+    transform: perspective(1000px) rotateY(0deg);
+  }
+  15% {
+    transform: perspective(1000px) rotateY(-15deg);
+  }
+  30% {
+    transform: perspective(1000px) rotateY(12deg);
+  }
+  45% {
+    transform: perspective(1000px) rotateY(-10deg);
+  }
+  60% {
+    transform: perspective(1000px) rotateY(8deg);
+  }
+  75% {
+    transform: perspective(1000px) rotateY(-5deg);
+  }
+}
+
+/* Shake 3D */
+.shake-3d {
+  animation: shake-3d 0.6s ease-in-out;
+}
+
+@keyframes shake-3d {
+  0%,
+  100% {
+    transform: perspective(1000px) translateX(0) rotateZ(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: perspective(1000px) translateX(-10px) rotateZ(-2deg);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: perspective(1000px) translateX(10px) rotateZ(2deg);
+  }
+}
+
+/* Slide in 3D */
+.slide-in-3d {
+  animation: slide-in-3d 0.8s ease-out;
+}
+
+@keyframes slide-in-3d {
+  from {
+    transform: perspective(1000px) translateZ(-500px) translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: perspective(1000px) translateZ(0) translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Zoom in 3D */
+.zoom-in-3d {
+  animation: zoom-in-3d 0.6s ease-out;
+}
+
+@keyframes zoom-in-3d {
+  from {
+    transform: perspective(1000px) scale(0) translateZ(-500px);
+    opacity: 0;
+  }
+  to {
+    transform: perspective(1000px) scale(1) translateZ(0);
+    opacity: 1;
+  }
+}
+
+/* Tilt 3D (inclinaison) */
+.tilt-3d {
+  animation: tilt-3d 2s ease-in-out infinite;
+}
+
+@keyframes tilt-3d {
+  0%,
+  100% {
+    transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+  }
+  25% {
+    transform: perspective(1000px) rotateX(10deg) rotateY(10deg);
+  }
+  50% {
+    transform: perspective(1000px) rotateX(-10deg) rotateY(10deg);
+  }
+  75% {
+    transform: perspective(1000px) rotateX(10deg) rotateY(-10deg);
+  }
+}
+
+/* Roll 3D */
+.roll-3d {
+  animation: roll-3d 2s ease-in-out;
+}
+
+@keyframes roll-3d {
+  from {
+    transform: perspective(1000px) translateX(-100%) rotateZ(-720deg);
+    opacity: 0;
+  }
+  to {
+    transform: perspective(1000px) translateX(0) rotateZ(0deg);
+    opacity: 1;
+  }
+}
+
+/* Card flip effect */
+.flip-card {
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Glowing effect 3D */
+.glow-3d {
+  animation: glow-3d 2s ease-in-out infinite;
+}
+
+@keyframes glow-3d {
+  0%,
+  100% {
+    box-shadow: 0 0 10px var(--framboise-pop), 0 0 20px var(--framboise-pop),
+      var(--shadow-3d);
+  }
+  50% {
+    box-shadow: 0 0 20px var(--menthe-fraiche), 0 0 40px var(--menthe-fraiche),
+      0 0 60px var(--mangue-flash), var(--shadow-3d-hover);
+  }
+}
+
+/* Parallax layers */
+.parallax-layer {
+  transition: transform 0.1s ease-out;
   will-change: transform;
 }
 
-@keyframes confetti-fall {
-  0% {
-    transform: translateY(-50px) rotate(0deg);
-    opacity: 1;
-  }
+.parallax-layer-slow {
+  transform: translateZ(-50px) scale(1.05);
+}
+
+.parallax-layer-fast {
+  transform: translateZ(50px) scale(0.95);
+}
+
+/* Neon effect 3D */
+.neon-3d {
+  text-shadow: 0 0 5px var(--framboise-pop), 0 0 10px var(--framboise-pop),
+    0 0 20px var(--menthe-fraiche), 0 0 30px var(--menthe-fraiche);
+  animation: neon-flicker 3s ease-in-out infinite;
+}
+
+@keyframes neon-flicker {
+  0%,
   100% {
-    transform: translateY(calc(100vh + 50px)) rotate(720deg);
-    opacity: 0;
+    text-shadow: 0 0 5px var(--framboise-pop), 0 0 10px var(--framboise-pop),
+      0 0 20px var(--menthe-fraiche), 0 0 30px var(--menthe-fraiche);
+  }
+  50% {
+    text-shadow: 0 0 10px var(--framboise-pop), 0 0 20px var(--framboise-pop),
+      0 0 40px var(--menthe-fraiche), 0 0 60px var(--menthe-fraiche),
+      0 0 80px var(--citron-neon);
   }
 }
 
-/* --- PARTICULES COLORÉES --- */
-.particle {
+/* --- PARTICULES ET EFFETS SPÉCIAUX --- */
+
+.particle-burst {
   position: absolute;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--citron-soleil);
-  animation: particle-sparkle 2s ease-out forwards;
   pointer-events: none;
 }
 
-@keyframes particle-sparkle {
+.particle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  animation: particle-fly 1s ease-out forwards;
+}
+
+@keyframes particle-fly {
   0% {
     opacity: 1;
     transform: translate(0, 0) scale(1);
@@ -117,373 +367,19 @@
   }
 }
 
-/* --- EFFET PARALLAXE --- */
-.parallax-layer {
-  transition: transform 0.1s ease-out;
-  will-change: transform;
-}
-
-/* --- EFFET DE VERRE GIVRÉ --- */
-.glass-effect {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
-}
-
-/* --- ONDULATION DE TEXTE --- */
-.text-wave {
-  display: inline-block;
-  animation: wave 2s ease-in-out infinite;
-}
-
-.text-wave span {
-  display: inline-block;
-  animation: wave-letter 1s ease-in-out infinite;
-}
-
-.text-wave span:nth-child(1) {
-  animation-delay: 0s;
-}
-.text-wave span:nth-child(2) {
-  animation-delay: 0.1s;
-}
-.text-wave span:nth-child(3) {
-  animation-delay: 0.2s;
-}
-.text-wave span:nth-child(4) {
-  animation-delay: 0.3s;
-}
-.text-wave span:nth-child(5) {
-  animation-delay: 0.4s;
-}
-.text-wave span:nth-child(6) {
-  animation-delay: 0.5s;
-}
-
-@keyframes wave-letter {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-/* --- EFFET REBOND --- */
-.bounce-effect {
-  animation: bounce 1s ease infinite;
-}
-
-@keyframes bounce {
-  0%,
-  20%,
-  50%,
-  80%,
-  100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-20px);
-  }
-  60% {
-    transform: translateY(-10px);
-  }
-}
-
-/* --- ROTATION INFINIE --- */
-.spin-slow {
-  animation: spin-slow 10s linear infinite;
-}
-
-.spin-fast {
-  animation: spin-fast 2s linear infinite;
-}
-
-@keyframes spin-slow {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes spin-fast {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* --- PULSATION --- */
-.pulse {
-  animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%,
-  100% {
-    transform: scale(1);
+/* Animation confettis qui tombent */
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-50px) rotate(0deg);
     opacity: 1;
   }
-  50% {
-    transform: scale(1.1);
-    opacity: 0.8;
-  }
-}
-
-/* --- SHAKE (tremblement) --- */
-.shake {
-  animation: shake 0.5s ease-in-out;
-}
-
-@keyframes shake {
-  0%,
   100% {
-    transform: translateX(0);
-  }
-  10%,
-  30%,
-  50%,
-  70%,
-  90% {
-    transform: translateX(-5px);
-  }
-  20%,
-  40%,
-  60%,
-  80% {
-    transform: translateX(5px);
-  }
-}
-
-/* --- GLOW (lueur pulsante) --- */
-.glow {
-  animation: glow 2s ease-in-out infinite;
-}
-
-@keyframes glow {
-  0%,
-  100% {
-    box-shadow: 0 0 10px var(--bonbon-rose), 0 0 20px var(--bonbon-rose);
-  }
-  50% {
-    box-shadow: 0 0 20px var(--bonbon-rose), 0 0 40px var(--bonbon-rose),
-      0 0 60px var(--glace-turquoise);
-  }
-}
-
-/* --- FLASH (éclair) --- */
-.flash {
-  animation: flash 1s ease infinite;
-}
-
-@keyframes flash {
-  0%,
-  50%,
-  100% {
-    opacity: 1;
-  }
-  25%,
-  75% {
+    transform: translateY(calc(100vh + 50px)) rotate(720deg);
     opacity: 0.5;
   }
 }
 
-/* --- ZOOM IN --- */
-.zoom-in {
-  animation: zoom-in 0.5s ease-out;
-}
-
-@keyframes zoom-in {
-  from {
-    transform: scale(0);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-/* --- ZOOM OUT --- */
-.zoom-out {
-  animation: zoom-out 0.5s ease-out;
-}
-
-@keyframes zoom-out {
-  from {
-    transform: scale(1);
-    opacity: 1;
-  }
-  to {
-    transform: scale(0);
-    opacity: 0;
-  }
-}
-
-/* --- SLIDE IN FROM LEFT --- */
-.slide-in-left {
-  animation: slide-in-left 0.6s ease-out;
-}
-
-@keyframes slide-in-left {
-  from {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-/* --- SLIDE IN FROM RIGHT --- */
-.slide-in-right {
-  animation: slide-in-right 0.6s ease-out;
-}
-
-@keyframes slide-in-right {
-  from {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-/* --- FADE IN --- */
-.fade-in {
-  animation: fade-in 0.8s ease-out;
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-/* --- FADE OUT --- */
-.fade-out {
-  animation: fade-out 0.8s ease-out;
-}
-
-@keyframes fade-out {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
-/* --- ROTATION 3D --- */
-.rotate-3d {
-  animation: rotate-3d 2s ease-in-out infinite;
-}
-
-@keyframes rotate-3d {
-  0% {
-    transform: rotateY(0deg);
-  }
-  50% {
-    transform: rotateY(180deg);
-  }
-  100% {
-    transform: rotateY(360deg);
-  }
-}
-
-/* --- FLIP --- */
-.flip {
-  animation: flip 0.6s ease-out;
-}
-
-@keyframes flip {
-  0% {
-    transform: perspective(400px) rotateY(0);
-  }
-  100% {
-    transform: perspective(400px) rotateY(360deg);
-  }
-}
-
-/* --- WIGGLE --- */
-.wiggle {
-  animation: wiggle 0.5s ease-in-out infinite;
-}
-
-@keyframes wiggle {
-  0%,
-  100% {
-    transform: rotate(0deg);
-  }
-  25% {
-    transform: rotate(-10deg);
-  }
-  75% {
-    transform: rotate(10deg);
-  }
-}
-
-/* --- JELLO (gélatine) --- */
-.jello {
-  animation: jello 1s ease-in-out;
-}
-
-@keyframes jello {
-  0%,
-  100% {
-    transform: skewX(0deg) skewY(0deg);
-  }
-  30% {
-    transform: skewX(12deg) skewY(12deg);
-  }
-  40% {
-    transform: skewX(-10deg) skewY(-10deg);
-  }
-  50% {
-    transform: skewX(7deg) skewY(7deg);
-  }
-  60% {
-    transform: skewX(-5deg) skewY(-5deg);
-  }
-  70% {
-    transform: skewX(3deg) skewY(3deg);
-  }
-}
-
-/* --- HEART BEAT --- */
-.heartbeat {
-  animation: heartbeat 1.5s ease-in-out infinite;
-}
-
-@keyframes heartbeat {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-  10%,
-  30% {
-    transform: scale(1.1);
-  }
-  20%,
-  40% {
-    transform: scale(1);
-  }
-}
-
-/* --- Préférences de mouvement réduit --- */
+/* --- PRÉFÉRENCES DE MOUVEMENT RÉDUIT --- */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
