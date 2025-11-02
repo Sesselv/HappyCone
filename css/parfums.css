@@ -1,0 +1,250 @@
+/* ========================================
+   SECTION PARFUMS - Nos Glaces
+======================================== */
+
+.sec-parfums {
+  background: linear-gradient(
+    180deg,
+    var(--creme-vanille) 0%,
+    var(--blanc-neige) 100%
+  );
+  position: relative;
+  overflow: hidden;
+
+  & .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Grille des parfums */
+  & .parfums-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--espace-md);
+    margin-bottom: var(--espace-lg);
+    padding: var(--espace-md) 0;
+  }
+
+  /* Carte de parfum */
+  & .parfum-card {
+    background: var(--blanc-neige);
+    border-radius: var(--radius-doux);
+    padding: var(--espace-md);
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    transition: var(--transition-douce);
+    box-shadow: var(--ombre-douce);
+    overflow: hidden;
+    will-change: transform;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(
+        135deg,
+        transparent 0%,
+        var(--bonbon-rose) 100%
+      );
+      opacity: 0;
+      transition: var(--transition-rapide);
+      z-index: 0;
+    }
+
+    &:hover {
+      transform: translateY(-10px) rotate(2deg);
+      box-shadow: 0 15px 40px rgba(255, 105, 180, 0.4);
+
+      &::before {
+        opacity: 0.1;
+      }
+
+      & .card-emoji {
+        transform: scale(1.3) rotate(15deg);
+        filter: drop-shadow(0 0 20px var(--citron-soleil));
+      }
+
+      & .card-title {
+        color: var(--bonbon-rose);
+        transform: scale(1.05);
+      }
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+
+    & > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    & .card-emoji {
+      font-size: 5rem;
+      margin-bottom: var(--espace-sm);
+      display: block;
+      transition: var(--transition-douce);
+      filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
+    }
+
+    & .card-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--chocolat-noir);
+      margin-bottom: var(--espace-xs);
+      transition: var(--transition-rapide);
+    }
+
+    & .card-description {
+      font-size: 1rem;
+      color: var(--chocolat-noir);
+      opacity: 0.7;
+      line-height: 1.4;
+    }
+  }
+
+  /* Animation d'explosion de bulle au clic */
+  & .parfum-card.explode {
+    animation: card-explode 0.6s ease-out;
+
+    &::after {
+      content: "✨";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 8rem;
+      animation: sparkle-burst 0.6s ease-out forwards;
+      pointer-events: none;
+    }
+  }
+
+  /* Bouton surprise */
+  & .btn-surprise {
+    background: var(--gradient-douceur);
+    color: var(--blanc-neige);
+    margin: var(--espace-md) auto;
+    display: flex;
+    box-shadow: var(--ombre-moyenne);
+    position: relative;
+    z-index: 10;
+
+    &:hover {
+      background: var(--gradient-estival);
+      box-shadow: var(--ombre-forte);
+
+      & .emoji-clover {
+        animation: spin-clover 0.5s ease;
+      }
+    }
+
+    & .emoji-clover {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+/* --- ANIMATIONS KEYFRAMES --- */
+
+/* Explosion de carte */
+@keyframes card-explode {
+  0% {
+    transform: translateY(-10px) scale(1);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.1);
+    box-shadow: 0 20px 60px rgba(255, 105, 180, 0.6);
+  }
+  100% {
+    transform: translateY(-10px) scale(1);
+  }
+}
+
+/* Éclat d'étoiles */
+@keyframes sparkle-burst {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.5);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(2);
+  }
+}
+
+/* Rotation du trèfle */
+@keyframes spin-clover {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+  .sec-parfums {
+    & .parfums-grid {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--espace-sm);
+    }
+
+    & .parfum-card {
+      padding: var(--espace-sm);
+
+      & .card-emoji {
+        font-size: 4rem;
+      }
+
+      & .card-title {
+        font-size: 1.3rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .sec-parfums {
+    & .parfums-grid {
+      grid-template-columns: 1fr;
+      gap: var(--espace-sm);
+    }
+
+    & .parfum-card {
+      & .card-emoji {
+        font-size: 3.5rem;
+      }
+
+      & .card-title {
+        font-size: 1.2rem;
+      }
+
+      & .card-description {
+        font-size: 0.9rem;
+      }
+    }
+
+    & .btn-surprise {
+      font-size: 1rem;
+      padding: var(--espace-sm);
+    }
+  }
+}
+
+/* --- EFFET DE COULEUR DYNAMIQUE AU SURVOL --- */
+.parfum-card[data-color]::before {
+  background: linear-gradient(135deg, transparent 0%, currentColor 100%);
+}
+
+.parfum-card:hover {
+  border: 2px solid var(--bonbon-rose);
+}

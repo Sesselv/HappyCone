@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HappyCone V2 - Glaces Artisanales 3D 🍦</title>
+
+    <!-- Google Fonts - Style moderne et audacieux -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Outfit:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS Files V2 -->
+    <link rel="stylesheet" href="css/main-v2.css" />
+    <link rel="stylesheet" href="css/hero-v2.css" />
+    <link rel="stylesheet" href="css/parfums-v2.css" />
+    <link rel="stylesheet" href="css/emplacements-v2.css" />
+    <link rel="stylesheet" href="css/apropos-v2.css" />
+    <link rel="stylesheet" href="css/footer-v2.css" />
+    <link rel="stylesheet" href="css/animations-v2.css" />
+  </head>
+  <body>
+    <!-- Section Hero / Accueil 3D -->
+    <section class="sec-hero" id="accueil">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-image-zone">
+            <div class="image-placeholder truck-image">
+              <div class="placeholder-content">
+                <img
+                  src="assets/img/foodtruck.png"
+                  alt=""
+                  class="foodtruck-img"
+                  style="width: 100%; height: 100%; object-fit: contain"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Contenu texte -->
+          <div class="hero-text-zone">
+            <div class="badge-3d">🍦 Glaces Artisanales</div>
+            <h1 class="hero-title-3d">
+              <span class="word-3d">Happy</span>
+              <span class="word-3d">Cone</span>
+            </h1>
+            <p class="hero-subtitle">Le bonheur glacé à chaque bouchée</p>
+            <div class="hero-stats">
+              <div class="stat-card">
+                <span class="stat-number">8</span>
+                <span class="stat-label">Parfums</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">Artisanal</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-number">5⭐</span>
+                <span class="stat-label">Reviews</span>
+              </div>
+            </div>
+            <a href="#parfums" class="btn-3d primary">
+              <span>Découvrir nos glaces</span>
+              <span class="btn-icon">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Éléments décoratifs 3D -->
+      <div class="floating-shapes">
+        <div class="shape-3d shape-circle"></div>
+        <div class="shape-3d shape-square"></div>
+        <div class="shape-3d shape-triangle"></div>
+      </div>
+    </section>
+
+    <!-- Section Nos Parfums 3D -->
+    <section class="sec-parfums" id="parfums">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Nos Créations</span>
+          <h2 class="section-title-3d">Parfums Glacés</h2>
+          <p class="section-description">
+            Des saveurs qui font vibrer vos papilles
+          </p>
+        </div>
+
+        <div class="parfums-grid-3d">
+          <!-- Carte Vanille -->
+          <div class="parfum-card-3d" data-color="#FFF8DC">
+            <div class="card-image-zone">
+              <div class="image-placeholder">
+                <span class="placeholder-icon">🥛</span>
+              </div>
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Vanille Bourbon</h3>
+              <p class="card-description">La douceur classique</p>
+              <span class="card-price">3.50€</span>
+            </div>
+            <div class="card-hover-layer"></div>
+          </div>
+
+          <!-- Carte Fraise -->
+          <div class="parfum-card-3d" data-color="#FF69B4">
+            <div class="card-image-zone">
+              <div class="image-placeholder">
+                <span class="placeholder-icon">🍓</span>
+              </div>
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Fraise des Bois</h3>
+              <p class="card-description">L'été en une boule</p>
+              <span class="card-price">3.80€</span>
+            </div>
+            <div class="card-hover-layer"></div>
+          </div>
+
+          <!-- Carte Pistache -->
+          <div class="parfum-card-3d" data-color="#93C572">
+            <div class="card-image-zone">
+              <div class="image-placeholder">
+                <span class="placeholder-icon">🌰</span>
+              </div>
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Pistache</h3>
+              <p class="card-description">Le vert du bonheur</p>
+              <span class="card-price">4.00€</span>
+            </div>
+            <div class="card-hover-layer"></div>
+          </div>
+
+          <!-- Carte Cookie -->
+          <div class="parfum-card-3d" data-color="#D2691E">
+            <div class="card-image-zone">
+              <div class="image-placeholder">
+                <span class="placeholder-icon">🍪</span>
+              </div>
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Cookie Crunch</h3>
+              <p class="card-description">Chocolat et biscuit</p>
+              <span class="card-price">4.20€</span>
+            </div>
+            <div class="card-hover-layer"></div>
+          </div>
+
+          <!-- Carte Mangue -->
+          <div class="parfum-card-3d" data-color="#FFB347">
+            <div class="card-image-zone">
+              <div class="image-placeholder">
+                <span class="placeholder-icon">🥭</span>
+              </div>
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Mangue Tropicale</h3>
+              <p class="card-description">Voyage tropical</p>
+              <span class="card-price">3.90€</span>
+            </div>
+            <div class="card-hover-layer"></div>
+          </div>
+
+          <!-- Carte Citron -->
+          <div class="parfum-card-3d" data-color="#FFF44F">
+            <div class="card-image-zone">
+              <div class="image-placeholder">
+                <span class="placeholder-icon">🍋</span>
+              </div>
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Citron Givré</h3>
+              <p class="card-description">Acidulé et frais</p>
+              <span class="card-price">3.70€</span>
+            </div>
+            <div class="card-hover-layer"></div>
+          </div>
+
+          <!-- Carte Caramel -->
+          <div class="parfum-card-3d" data-color="#C68642">
+            <div class="card-image-zone">
+              <div class="image-placeholder">
+                <span class="placeholder-icon">🍯</span>
+              </div>
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Caramel Salé</h3>
+              <p class="card-description">Douceur salée</p>
+              <span class="card-price">4.10€</span>
+            </div>
+            <div class="card-hover-layer"></div>
+          </div>
+
+          <!-- Carte Coco -->
+          <div class="parfum-card-3d" data-color="#F5F5DC">
+            <div class="card-image-zone">
+              <div class="image-placeholder">
+                <span class="placeholder-icon">🥥</span>
+              </div>
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Coco Paradis</h3>
+              <p class="card-description">Évasion crémeuse</p>
+              <span class="card-price">3.95€</span>
+            </div>
+            <div class="card-hover-layer"></div>
+          </div>
+        </div>
+
+        <div class="section-cta">
+          <button class="btn-3d secondary" id="btn-random-v2">
+            <span>Parfum Surprise</span>
+            <span class="btn-icon">🎲</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Où nous trouver - Timeline V1 -->
+    <section class="sec-emplacements" id="emplacements">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Notre Tournée</span>
+          <h2 class="section-title-3d neon-text">Où Nous Trouver ? 🚚</h2>
+          <p class="section-description">Suivez notre tournée gourmande !</p>
+        </div>
+
+        <div class="timeline-wrapper">
+          <div class="timeline-line"></div>
+          <div class="timeline-container">
+            <!-- Lundi -->
+            <div class="timeline-item" data-jour="1">
+              <div class="timeline-icon">🍃</div>
+              <div class="timeline-content">
+                <h3 class="jour">Lundi</h3>
+                <p class="lieu">Parc Central</p>
+                <p class="horaire">14h - 19h</p>
+              </div>
+            </div>
+
+            <!-- Mardi -->
+            <div class="timeline-item" data-jour="2">
+              <div class="timeline-icon">🌊</div>
+              <div class="timeline-content">
+                <h3 class="jour">Mardi</h3>
+                <p class="lieu">Bord de Mer</p>
+                <p class="horaire">14h - 20h</p>
+              </div>
+            </div>
+
+            <!-- Mercredi -->
+            <div class="timeline-item" data-jour="3">
+              <div class="timeline-icon">☀️</div>
+              <div class="timeline-content">
+                <h3 class="jour">Mercredi</h3>
+                <p class="lieu">Marché du Soleil</p>
+                <p class="horaire">10h - 14h</p>
+              </div>
+            </div>
+
+            <!-- Jeudi -->
+            <div class="timeline-item" data-jour="4">
+              <div class="timeline-icon">🎡</div>
+              <div class="timeline-content">
+                <h3 class="jour">Jeudi</h3>
+                <p class="lieu">Centre-ville</p>
+                <p class="horaire">14h - 19h</p>
+              </div>
+            </div>
+
+            <!-- Vendredi -->
+            <div class="timeline-item" data-jour="5">
+              <div class="timeline-icon">🎶</div>
+              <div class="timeline-content">
+                <h3 class="jour">Vendredi</h3>
+                <p class="lieu">Festival Gourmand</p>
+                <p class="horaire">18h - 23h</p>
+              </div>
+            </div>
+
+            <!-- Weekend -->
+            <div class="timeline-item" data-jour="6">
+              <div class="timeline-icon">🎉</div>
+              <div class="timeline-content">
+                <h3 class="jour">Sam & Dim</h3>
+                <p class="lieu">Événements Privés</p>
+                <p class="horaire">Sur réservation</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section À propos 3D -->
+    <section class="sec-apropos" id="apropos">
+      <div class="container">
+        <div class="apropos-grid">
+          <!-- Image de l'équipe -->
+          <div class="team-image-zone">
+            <div class="image-placeholder large">
+              <div class="placeholder-content">
+                <img
+                  src="assets/img/equipe.png"
+                  alt="Équipe HappyCone"
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: var(--radius-lg);
+                  "
+                />
+              </div>
+            </div>
+            <div class="team-badge-3d">Depuis 2023</div>
+          </div>
+
+          <!-- Texte à propos -->
+          <div class="apropos-content">
+            <span class="section-badge">Notre Histoire</span>
+            <h2 class="section-title-3d">Qui Sommes-Nous ?</h2>
+            <p class="apropos-text">
+              <strong>Deux amis, un vieux camion, et une mission :</strong>
+              distribuer le bonheur glacé partout ! 🍦
+            </p>
+            <p class="apropos-text">
+              Tout a commencé dans notre cuisine avec des recettes de famille et
+              une envie folle de partager nos créations. Aujourd'hui, HappyCone
+              sillonne les rues avec ses glaces artisanales faites avec amour et
+              des ingrédients 100% naturels.
+            </p>
+
+            <div class="values-grid">
+              <div class="value-card-3d">
+                <span class="value-icon">🌱</span>
+                <h4>100% Naturel</h4>
+              </div>
+              <div class="value-card-3d">
+                <span class="value-icon">❤️</span>
+                <h4>Fait avec Amour</h4>
+              </div>
+              <div class="value-card-3d">
+                <span class="value-icon">🍨</span>
+                <h4>Local & Bio</h4>
+              </div>
+            </div>
+
+            <div class="social-links-3d">
+              <a href="#" class="social-btn-3d instagram">
+                <span>📷</span>
+              </a>
+              <a href="#" class="social-btn-3d tiktok">
+                <span>🎵</span>
+              </a>
+              <a href="#" class="social-btn-3d facebook">
+                <span>👍</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer 3D -->
+    <footer class="sec-footer" id="contact">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-column">
+            <h3 class="footer-title-3d">HappyCone</h3>
+            <p class="footer-text">Le goût du sourire depuis 2023</p>
+          </div>
+
+          <div class="footer-column">
+            <h4 class="footer-subtitle">Contact</h4>
+            <ul class="footer-list">
+              <li>📧 hello@happycone.fr</li>
+              <li>📱 06 12 34 56 78</li>
+              <li>📍 Partout en ville</li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h4 class="footer-subtitle">Horaires</h4>
+            <ul class="footer-list">
+              <li>Lun - Ven : 14h - 20h</li>
+              <li>Weekend : Sur événements</li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h4 class="footer-subtitle">Suivez-nous</h4>
+            <div class="footer-social">
+              <a href="#" class="footer-social-link">Instagram</a>
+              <a href="#" class="footer-social-link">TikTok</a>
+              <a href="#" class="footer-social-link">Facebook</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>
+            © 2025 HappyCone - Tous droits réservés |
+            <a href="#">Mentions légales</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main-v2.js"></script>
+  </body>
+</html>

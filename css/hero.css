@@ -1,0 +1,274 @@
+/* ========================================
+   SECTION HERO - Accueil
+======================================== */
+
+.sec-hero {
+  min-height: 100vh;
+  background: var(--gradient-estival);
+  background-size: 400% 400%;
+  animation: gradient-move 15s ease infinite;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  & .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    animation: fade-slide-up 1s ease-out;
+  }
+
+  /* Illustration du camion */
+  & .hero-illustration {
+    margin-bottom: var(--espace-md);
+    animation: parallax-float 3s ease-in-out infinite;
+
+    & .camion-glace {
+      position: relative;
+      display: inline-block;
+      font-size: 8rem;
+      filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.2));
+
+      & .camion-body {
+        animation: truck-wiggle 2s ease-in-out infinite;
+      }
+
+      & .glace-icon {
+        position: absolute;
+        top: -40px;
+        right: -20px;
+        font-size: 4rem;
+        animation: ice-spin 4s linear infinite;
+      }
+    }
+  }
+
+  /* Titre principal */
+  & .hero-title {
+    margin-bottom: var(--espace-md);
+
+    & .titre-principal {
+      display: block;
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 700;
+      background: linear-gradient(
+        45deg,
+        var(--blanc-neige),
+        var(--creme-vanille)
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      letter-spacing: 2px;
+      animation: title-bounce 2s ease infinite;
+    }
+
+    & .sous-titre {
+      display: block;
+      font-size: clamp(1.2rem, 3vw, 1.8rem);
+      color: var(--blanc-neige);
+      font-weight: 400;
+      margin-top: var(--espace-xs);
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  /* Slogan avec effet machine à écrire */
+  & .hero-slogan {
+    font-size: clamp(1.3rem, 3vw, 2rem);
+    color: var(--blanc-neige);
+    font-family: var(--font-principale);
+    font-weight: 500;
+    margin-bottom: var(--espace-lg);
+    min-height: 3rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    border-right: 3px solid var(--blanc-neige);
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    animation: typing 3s steps(40) 1s forwards,
+      blink-caret 0.75s step-end infinite;
+  }
+
+  /* Bouton CTA */
+  & .btn-hero {
+    background: var(--blanc-neige);
+    color: var(--bonbon-rose);
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+    padding: var(--espace-sm) var(--espace-md);
+    box-shadow: var(--ombre-forte);
+    transition: var(--transition-douce);
+
+    &:hover {
+      background: var(--bonbon-rose);
+      color: var(--blanc-neige);
+      transform: translateY(-8px) scale(1.1);
+      box-shadow: 0 20px 60px rgba(255, 105, 180, 0.5);
+    }
+
+    & .emoji-bounce {
+      display: inline-block;
+      animation: bounce-emoji 1s ease infinite;
+    }
+  }
+}
+
+/* --- ANIMATIONS KEYFRAMES --- */
+
+/* Animation du dégradé de fond */
+@keyframes gradient-move {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Fade et slide au chargement */
+@keyframes fade-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Flottement parallaxe */
+@keyframes parallax-float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Camion qui bouge */
+@keyframes truck-wiggle {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-3deg);
+  }
+  75% {
+    transform: rotate(3deg);
+  }
+}
+
+/* Glace qui tourne */
+@keyframes ice-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Titre qui rebondit */
+@keyframes title-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Effet machine à écrire */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+    border-right-color: transparent;
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: var(--blanc-neige);
+  }
+}
+
+/* Emoji qui rebondit */
+@keyframes bounce-emoji {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+  .sec-hero {
+    & .hero-illustration {
+      & .camion-glace {
+        font-size: 6rem;
+
+        & .glace-icon {
+          font-size: 3rem;
+          top: -30px;
+          right: -15px;
+        }
+      }
+    }
+
+    & .hero-slogan {
+      white-space: normal;
+      border-right: none;
+      animation: fade-slide-up 1s ease-out;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .sec-hero {
+    & .hero-illustration {
+      & .camion-glace {
+        font-size: 4rem;
+
+        & .glace-icon {
+          font-size: 2rem;
+          top: -20px;
+          right: -10px;
+        }
+      }
+    }
+
+    & .btn-hero {
+      padding: var(--espace-sm) var(--espace-sm);
+      font-size: 1rem;
+    }
+  }
+}

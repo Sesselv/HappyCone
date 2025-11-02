@@ -1,0 +1,237 @@
+/* ========================================
+   SECTION FOOTER - Contact & Liens
+======================================== */
+
+.sec-footer {
+  background: linear-gradient(
+    180deg,
+    var(--chocolat-noir) 0%,
+    var(--bonbon-rose) 100%
+  );
+  color: var(--blanc-neige);
+  padding: var(--espace-lg) 0 var(--espace-md);
+  position: relative;
+  overflow: hidden;
+  min-height: auto;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: var(--gradient-estival);
+    box-shadow: 0 0 20px var(--citron-soleil);
+  }
+
+  & .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Contenu principal du footer */
+  & .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--espace-md);
+    margin-bottom: var(--espace-lg);
+    text-align: center;
+
+    & .footer-section {
+      padding: var(--espace-sm);
+    }
+
+    & .footer-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: var(--espace-sm);
+      color: var(--citron-soleil);
+      text-shadow: 0 0 20px var(--citron-soleil);
+    }
+
+    & .footer-subtitle {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: var(--espace-sm);
+      color: var(--creme-vanille);
+    }
+
+    & .footer-text {
+      font-size: 1rem;
+      margin-bottom: var(--espace-xs);
+      color: var(--blanc-neige);
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+
+    /* Liens sociaux dans le footer */
+    & .footer-social {
+      display: flex;
+      gap: var(--espace-sm);
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: var(--espace-sm);
+    }
+
+    & .footer-link {
+      color: var(--creme-vanille);
+      font-weight: 500;
+      padding: var(--espace-xs) var(--espace-sm);
+      border-radius: var(--radius-rond);
+      background: rgba(255, 255, 255, 0.1);
+      transition: var(--transition-rapide);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+
+      &:hover {
+        background: var(--blanc-neige);
+        color: var(--bonbon-rose);
+        transform: translateY(-3px);
+        box-shadow: 0 5px 20px rgba(255, 255, 255, 0.3);
+      }
+    }
+  }
+
+  /* Cône qui fond (animation) */
+  & .footer-melting-cone {
+    text-align: center;
+    margin: var(--espace-md) 0;
+    position: relative;
+
+    & .cone-emoji {
+      font-size: 5rem;
+      display: inline-block;
+      animation: cone-melt 4s ease-in-out infinite;
+      filter: drop-shadow(0 10px 30px rgba(255, 105, 180, 0.5));
+    }
+  }
+
+  /* Bas du footer */
+  & .footer-bottom {
+    text-align: center;
+    padding-top: var(--espace-md);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: var(--espace-md);
+
+    & .footer-copyright {
+      font-size: 0.9rem;
+      color: var(--creme-vanille);
+      opacity: 0.8;
+
+      & .footer-link {
+        color: var(--blanc-neige);
+        text-decoration: underline;
+        background: transparent;
+        padding: 0;
+        border: none;
+
+        &:hover {
+          color: var(--citron-soleil);
+          transform: none;
+          box-shadow: none;
+        }
+      }
+    }
+  }
+}
+
+/* --- ANIMATIONS KEYFRAMES --- */
+
+/* Animation du cône qui fond */
+@keyframes cone-melt {
+  0%,
+  100% {
+    transform: translateY(0) scaleY(1);
+    filter: drop-shadow(0 10px 30px rgba(255, 105, 180, 0.5));
+  }
+  25% {
+    transform: translateY(5px) scaleY(0.95);
+  }
+  50% {
+    transform: translateY(10px) scaleY(0.9);
+    filter: drop-shadow(0 15px 40px rgba(64, 224, 208, 0.6));
+  }
+  75% {
+    transform: translateY(5px) scaleY(0.95);
+  }
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+  .sec-footer {
+    padding: var(--espace-md) 0 var(--espace-sm);
+
+    & .footer-content {
+      grid-template-columns: 1fr;
+      gap: var(--espace-sm);
+
+      & .footer-title {
+        font-size: 1.8rem;
+      }
+
+      & .footer-subtitle {
+        font-size: 1.2rem;
+      }
+
+      & .footer-text {
+        font-size: 0.95rem;
+      }
+
+      & .footer-social {
+        gap: var(--espace-xs);
+      }
+    }
+
+    & .footer-melting-cone {
+      & .cone-emoji {
+        font-size: 4rem;
+      }
+    }
+
+    & .footer-bottom {
+      & .footer-copyright {
+        font-size: 0.85rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .sec-footer {
+    & .footer-content {
+      & .footer-title {
+        font-size: 1.5rem;
+      }
+
+      & .footer-subtitle {
+        font-size: 1.1rem;
+      }
+
+      & .footer-text {
+        font-size: 0.9rem;
+      }
+
+      & .footer-social {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      & .footer-link {
+        width: 100%;
+        max-width: 200px;
+      }
+    }
+
+    & .footer-melting-cone {
+      & .cone-emoji {
+        font-size: 3rem;
+      }
+    }
+
+    & .footer-bottom {
+      & .footer-copyright {
+        font-size: 0.8rem;
+      }
+    }
+  }
+}

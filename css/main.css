@@ -1,0 +1,311 @@
+/* ========================================
+   HAPPYCONE - CSS PRINCIPAL
+   Variables & Styles Globaux
+======================================== */
+
+/* --- VARIABLES GLOBALES --- */
+:root {
+  /* Palette de couleurs principales */
+  --bonbon-rose: #ff69b4; /* Rose pastel vibrant */
+  --glace-turquoise: #40e0d0; /* Turquoise frais */
+  --citron-soleil: #ffd700; /* Jaune citron lumineux */
+
+  /* Couleurs complémentaires */
+  --corail-doux: #ff7f50; /* Corail chaleureux */
+  --lilas-reve: #dda0dd; /* Lilas doux */
+  --creme-vanille: #fff8dc; /* Blanc cassé crémeux */
+  --chocolat-noir: #2c2c2c; /* Noir profond */
+  --blanc-neige: #ffffff; /* Blanc pur */
+
+  /* Dégradés */
+  --gradient-estival: linear-gradient(
+    135deg,
+    var(--bonbon-rose) 0%,
+    var(--glace-turquoise) 50%,
+    var(--citron-soleil) 100%
+  );
+  --gradient-douceur: linear-gradient(
+    45deg,
+    var(--lilas-reve),
+    var(--bonbon-rose)
+  );
+  --gradient-fraicheur: linear-gradient(
+    180deg,
+    var(--glace-turquoise),
+    var(--blanc-neige)
+  );
+
+  /* Typographies */
+  --font-principale: "Fredoka", sans-serif;
+  --font-secondaire: "Poppins", sans-serif;
+
+  /* Espacements */
+  --espace-xs: 0.5rem;
+  --espace-sm: 1rem;
+  --espace-md: 2rem;
+  --espace-lg: 4rem;
+  --espace-xl: 6rem;
+
+  /* Ombres */
+  --ombre-douce: 0 4px 15px rgba(255, 105, 180, 0.2);
+  --ombre-moyenne: 0 8px 30px rgba(64, 224, 208, 0.3);
+  --ombre-forte: 0 15px 50px rgba(255, 215, 0, 0.4);
+
+  /* Transitions */
+  --transition-rapide: 0.3s ease;
+  --transition-douce: 0.6s ease;
+  --transition-fluide: 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Border radius */
+  --radius-doux: 15px;
+  --radius-rond: 50px;
+  --radius-cercle: 50%;
+}
+
+/* --- RESET & BASE --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-secondaire);
+  line-height: 1.6;
+  color: var(--chocolat-noir);
+  background: var(--blanc-neige);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* --- TYPOGRAPHIE GLOBALE --- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-principale);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: var(--espace-sm);
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+p {
+  margin-bottom: var(--espace-sm);
+  font-size: clamp(1rem, 2vw, 1.125rem);
+}
+
+/* --- CONTENEURS --- */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--espace-md) var(--espace-sm);
+  position: relative;
+  z-index: 1;
+}
+
+/* --- SECTIONS --- */
+section {
+  min-height: 100vh;
+  padding: var(--espace-xl) 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Titres de section avec effet néon */
+.section-title {
+  text-align: center;
+  margin-bottom: var(--espace-sm);
+  color: var(--chocolat-noir);
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  color: var(--bonbon-rose);
+  margin-bottom: var(--espace-lg);
+  font-weight: 300;
+}
+
+.neon-text {
+  text-shadow: 0 0 10px var(--bonbon-rose), 0 0 20px var(--bonbon-rose),
+    0 0 30px var(--glace-turquoise), 0 0 40px var(--glace-turquoise);
+  animation: neon-pulse 2s ease-in-out infinite;
+}
+
+/* --- LIENS --- */
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition-rapide);
+}
+
+a:hover {
+  transform: translateY(-2px);
+}
+
+/* --- BOUTONS GLOBAUX --- */
+button,
+.btn-hero,
+.btn-surprise {
+  font-family: var(--font-principale);
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: var(--espace-sm) var(--espace-md);
+  border: none;
+  border-radius: var(--radius-rond);
+  cursor: pointer;
+  transition: var(--transition-douce);
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espace-xs);
+}
+
+button:hover,
+.btn-hero:hover,
+.btn-surprise:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: var(--ombre-forte);
+}
+
+button:active,
+.btn-hero:active,
+.btn-surprise:active {
+  transform: translateY(-2px) scale(0.98);
+}
+
+/* --- BULLES FLOTTANTES EN ARRIÈRE-PLAN --- */
+.bulles-fond {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.bulle {
+  position: absolute;
+  border-radius: var(--radius-cercle);
+  opacity: 0.6;
+  animation: float-up linear infinite;
+  will-change: transform;
+}
+
+/* --- ANIMATIONS KEYFRAMES --- */
+@keyframes neon-pulse {
+  0%,
+  100% {
+    text-shadow: 0 0 10px var(--bonbon-rose), 0 0 20px var(--bonbon-rose),
+      0 0 30px var(--glace-turquoise), 0 0 40px var(--glace-turquoise);
+  }
+  50% {
+    text-shadow: 0 0 20px var(--bonbon-rose), 0 0 30px var(--bonbon-rose),
+      0 0 40px var(--glace-turquoise), 0 0 50px var(--glace-turquoise),
+      0 0 60px var(--citron-soleil);
+  }
+}
+
+@keyframes float-up {
+  0% {
+    transform: translateY(100vh) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-100px) scale(1);
+    opacity: 0;
+  }
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+  :root {
+    --espace-lg: 3rem;
+    --espace-xl: 4rem;
+  }
+
+  section {
+    min-height: auto;
+    padding: var(--espace-lg) 0;
+  }
+
+  .container {
+    width: 95%;
+    padding: var(--espace-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --espace-lg: 2rem;
+    --espace-xl: 3rem;
+  }
+
+  html {
+    font-size: 14px;
+  }
+}
+
+/* --- UTILITAIRES --- */
+.text-center {
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+}
+
+.fade-in {
+  animation: fadeIn var(--transition-douce);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

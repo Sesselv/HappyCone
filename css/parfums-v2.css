@@ -1,0 +1,293 @@
+/* ========================================
+   SECTION PARFUMS V2 - Cartes 3D
+======================================== */
+
+.sec-parfums {
+  background: var(--gris-doux);
+  position: relative;
+
+  /* Motif décoratif */
+  &::after {
+    content: "🍦";
+    position: absolute;
+    font-size: 15rem;
+    opacity: 0.03;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+
+  & .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Grille des parfums 3D */
+  & .parfums-grid-3d {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--gap-lg);
+    margin-bottom: var(--gap-xl);
+  }
+
+  /* Carte Parfum 3D */
+  & .parfum-card-3d {
+    background: var(--blanc);
+    border: var(--border-size) solid var(--noir);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    position: relative;
+    transition: var(--trans-smooth);
+    cursor: pointer;
+    box-shadow: var(--shadow-3d);
+
+    &:hover {
+      transform: translateY(-8px) rotate(2deg);
+      box-shadow: var(--shadow-3d-hover);
+
+      & .card-image-zone {
+        transform: scale(1.1);
+      }
+
+      & .card-hover-layer {
+        opacity: 0.1;
+      }
+
+      & .card-title {
+        color: var(--rose-fraise);
+      }
+
+      & .card-price {
+        transform: scale(1.2);
+        background: var(--bleu-myrtille);
+      }
+    }
+
+    /* Zone Image */
+    & .card-image-zone {
+      height: 200px;
+      background: var(--gris-doux);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--trans-smooth);
+      position: relative;
+      overflow: hidden;
+
+      & .image-placeholder {
+        width: 100%;
+        height: 100%;
+        border: none;
+        border-radius: 0;
+
+        & .placeholder-icon {
+          font-size: 6rem;
+          filter: none;
+          animation: icon-float 3s ease-in-out infinite;
+        }
+      }
+    }
+
+    /* Contenu de la carte */
+    & .card-content {
+      padding: var(--gap-md);
+      position: relative;
+      z-index: 2;
+    }
+
+    & .card-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--noir);
+      margin-bottom: var(--gap-xs);
+      transition: var(--trans-fast);
+    }
+
+    & .card-description {
+      font-size: 1rem;
+      color: var(--noir);
+      margin-bottom: var(--gap-md);
+    }
+
+    & .card-price {
+      display: inline-block;
+      padding: var(--gap-xs) var(--gap-sm);
+      background: var(--rose-fraise);
+      color: var(--blanc);
+      font-weight: 700;
+      font-size: 1.2rem;
+      border-radius: var(--radius-sm);
+      transition: var(--trans-smooth);
+      box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    /* Layer de hover */
+    & .card-hover-layer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--rose-fraise);
+      opacity: 0;
+      transition: var(--trans-smooth);
+      pointer-events: none;
+      z-index: 1;
+    }
+  }
+
+  /* Variations de couleur par carte */
+  & .parfum-card-3d:nth-child(1) {
+    & .card-hover-layer {
+      background: var(--jaune-citron);
+    }
+  }
+
+  & .parfum-card-3d:nth-child(2) {
+    & .card-hover-layer {
+      background: var(--rose-fraise);
+    }
+  }
+
+  & .parfum-card-3d:nth-child(3) {
+    & .card-hover-layer {
+      background: var(--bleu-myrtille);
+    }
+  }
+
+  & .parfum-card-3d:nth-child(4) {
+    & .card-hover-layer {
+      background: var(--rose-fraise);
+    }
+  }
+
+  & .parfum-card-3d:nth-child(5) {
+    & .card-hover-layer {
+      background: var(--jaune-citron);
+    }
+  }
+
+  & .parfum-card-3d:nth-child(6) {
+    & .card-hover-layer {
+      background: var(--jaune-citron);
+    }
+  }
+
+  & .parfum-card-3d:nth-child(7) {
+    & .card-hover-layer {
+      background: var(--bleu-myrtille);
+    }
+  }
+
+  & .parfum-card-3d:nth-child(8) {
+    & .card-hover-layer {
+      background: var(--bleu-myrtille);
+    }
+  }
+
+  /* Animation d'explosion */
+  & .parfum-card-3d.explode {
+    animation: card-explode-3d 0.6s ease-out;
+  }
+
+  /* Section CTA */
+  & .section-cta {
+    text-align: center;
+    margin-top: var(--gap-lg);
+  }
+}
+
+/* --- ANIMATIONS KEYFRAMES --- */
+
+@keyframes icon-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-10px) rotate(-5deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+}
+
+@keyframes card-explode-3d {
+  0% {
+    transform: translateY(-8px) rotate(2deg) scale(1);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg) scale(1.1);
+    box-shadow: 16px 16px 0 rgba(0, 0, 0, 0.2);
+  }
+  100% {
+    transform: translateY(-8px) rotate(2deg) scale(1);
+  }
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+  .sec-parfums {
+    & .parfums-grid-3d {
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: var(--gap-md);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .sec-parfums {
+    & .parfums-grid-3d {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: var(--gap-sm);
+    }
+
+    & .parfum-card-3d {
+      & .card-image-zone {
+        height: 150px;
+
+        & .image-placeholder {
+          & .placeholder-icon {
+            font-size: 4rem;
+          }
+        }
+      }
+
+      & .card-content {
+        padding: var(--gap-sm);
+      }
+
+      & .card-title {
+        font-size: 1.3rem;
+      }
+
+      & .card-description {
+        font-size: 0.9rem;
+      }
+
+      & .card-price {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .sec-parfums {
+    & .parfums-grid-3d {
+      grid-template-columns: 1fr;
+    }
+
+    & .parfum-card-3d {
+      &:hover {
+        transform: translateY(-4px) rotate(0deg);
+      }
+    }
+  }
+}
+
+
